@@ -810,8 +810,8 @@ function SplashCursor({
     }
 
     function resizeCanvas() {
-      let width = scaleByPixelRatio(canvas.clientWidth);
-      let height = scaleByPixelRatio(canvas.clientHeight);
+      const width = scaleByPixelRatio(canvas.clientWidth);
+      const height = scaleByPixelRatio(canvas.clientHeight);
       if (canvas.width !== width || canvas.height !== height) {
         canvas.width = width;
         canvas.height = height;
@@ -997,8 +997,8 @@ function SplashCursor({
       color.r *= 10.0;
       color.g *= 10.0;
       color.b *= 10.0;
-      let dx = 10 * (Math.random() - 0.5);
-      let dy = 30 * (Math.random() - 0.5);
+      const dx = 10 * (Math.random() - 0.5);
+      const dy = 30 * (Math.random() - 0.5);
       splat(pointer.texcoordX, pointer.texcoordY, dx, dy, color);
     }
 
@@ -1025,7 +1025,7 @@ function SplashCursor({
     }
 
     function correctRadius(radius) {
-      let aspectRatio = canvas.width / canvas.height;
+      const aspectRatio = canvas.width / canvas.height;
       if (aspectRatio > 1) radius *= aspectRatio;
       return radius;
     }
@@ -1072,7 +1072,7 @@ function SplashCursor({
     }
 
     function generateColor() {
-      let c = HSVtoRGB(Math.random(), 1.0, 1.0);
+      const c = HSVtoRGB(Math.random(), 1.0, 1.0);
       c.r *= 0.15;
       c.g *= 0.15;
       c.b *= 0.15;
@@ -1080,12 +1080,12 @@ function SplashCursor({
     }
 
     function HSVtoRGB(h, s, v) {
-      let r, g,b, i, f, p, q, t;
-      i = Math.floor(h * 6);
-      f = h * 6 - i;
-      p = v * (1 - s);
-      q = v * (1 - f * s);
-      t = v * (1 - (1 - f) * s);
+      let r, g,b;
+     const i = Math.floor(h * 6);
+      const f = h * 6 - i;
+     const p = v * (1 - s);
+      const q = v * (1 - f * s);
+      const t = v * (1 - (1 - f) * s);
       switch (i % 6) {
         case 0:
           r = v;
@@ -1224,7 +1224,7 @@ function SplashCursor({
 
     window.addEventListener("touchend", (e) => {
       const touches = e.changedTouches;
-      let pointer = pointers[0];
+      const pointer = pointers[0];
       for (let i = 0; i < touches.length; i++) {
         updatePointerUpData(pointer);
       }
