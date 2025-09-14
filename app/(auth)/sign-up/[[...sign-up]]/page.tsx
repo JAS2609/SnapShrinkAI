@@ -72,11 +72,15 @@ export default function Register() {
       });
 
       setPendingVerification(true);
-    } catch (err: any) {
-      setError(err.errors?.[0]?.message || "Something went wrong");
-    } finally {
-      setIsLoading(false);
-    }
+    } catch (err: unknown) {
+  if (err instanceof Error) {
+    setError(err.message);
+  }
+} finally {
+  setIsLoading(false);
+}
+
+
   };
 
   const handleVerify = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -93,11 +97,14 @@ export default function Register() {
       } else {
         setError("Verification failed");
       }
-    } catch (err: any) {
-      setError(err.errors?.[0]?.message || "Invalid verification code");
-    } finally {
-      setIsLoading(false);
-    }
+    } catch (err: unknown) {
+  if (err instanceof Error) {
+    setError(err.message);
+  }
+} finally {
+  setIsLoading(false);
+}
+
   };
 
   return (

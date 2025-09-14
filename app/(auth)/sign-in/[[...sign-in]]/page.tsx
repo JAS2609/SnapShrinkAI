@@ -69,11 +69,14 @@ export default function Login() {
         // If using email code / 2FA
         setPendingVerification(true);
       }
-    } catch (err: any) {
-      setError(err.errors?.[0]?.message || "Login failed");
-    } finally {
-      setIsLoading(false);
-    }
+    }catch (err: unknown) {
+  if (err instanceof Error) {
+    setError(err.message);
+  }
+} finally {
+  setIsLoading(false);
+}
+
   };
 
   // Step 2: Handle verification if needed (OTP / email code)
@@ -92,11 +95,15 @@ export default function Login() {
       } else {
         setError("Verification failed");
       }
-    } catch (err: any) {
-      setError(err.errors?.[0]?.message || "Invalid verification code");
-    } finally {
-      setIsLoading(false);
-    }
+    } catch (err: unknown) {
+  if (err instanceof Error) {
+    setError(err.message);
+  }
+} finally {
+  setIsLoading(false);
+}
+
+
   };
 
   return (

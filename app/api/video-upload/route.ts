@@ -19,7 +19,7 @@ import { PrismaClient } from "@prisma/client";
         public_id:string;
         bytes:number;
         duration?:number;
-       [key:string]:any
+       [key:string]:unknown
     }
 export async function POST(request:NextRequest){
    

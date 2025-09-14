@@ -20,6 +20,20 @@ const eslintConfig = [
       "next-env.d.ts",
     ],
   },
+
+  {
+    rules: {
+      "@typescript-eslint/ban-ts-comment": [
+        "error",
+        {
+          ts_nocheck: false,       // ✅ allow @ts-nocheck
+          ts_ignore: true,         // ❌ still ban @ts-ignore
+          ts_expect_error: false,  // ✅ allow @ts-expect-error
+          ts_check: false,
+        },
+      ],
+    },
+  },
 ];
 
 export default eslintConfig;
