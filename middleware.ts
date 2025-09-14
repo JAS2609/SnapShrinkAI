@@ -14,20 +14,28 @@ export default  clerkMiddleware(async (auth,req)=>{
     const isHome= currentUrl.pathname==="/home"
     const isApiRequest= currentUrl.pathname.startsWith("/api") 
 
-    if(userId && isPublicRoute(req) && !isHome){
-        return NextResponse.redirect(new URL("/",req.url))
+   if (userId) {
+    
+    if (currentUrl.pathname === "/sign-in" || currentUrl.pathname === "/sign-up") {
+      return NextResponse.redirect(new URL("/home", req.url));
     }
-    if(!userId ){
-    if(!isPublicRoute(req) && !isPublicApiRoute(req)){
-        return NextResponse.redirect(new URL("/sign-in",req.url))
-    }
-    if(isApiRequest&& !isPublicApiRoute(req)){
-       return NextResponse.redirect(new URL("/sign-in",req.url))
-    }
-    }
-    return NextResponse.next()
-})
+   
+    return NextResponse.next();
+  }
 
+  if (!userId) {
+    
+    if (!isPublicRoute(req) && !isPublicApiRoute(req)) {
+      return NextResponse.redirect(new URL("/sign-in", req.url));
+    }
+    
+    if (isApiRequest && !isPublicApiRoute(req)) {
+      return NextResponse.redirect(new URL("/sign-in", req.url));
+    }
+  }
+
+  return NextResponse.next();
+});
 export const config = {
   matcher: [
     // Skip Next.js internals and all static files, unless found in search params
