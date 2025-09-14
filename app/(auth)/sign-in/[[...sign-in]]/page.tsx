@@ -178,8 +178,8 @@ export default function Login() {
               onClick={() =>
                 signIn.authenticateWithRedirect({
                   strategy: "oauth_google",
-                  redirectUrl: "/sso-callback",
-                  redirectUrlComplete: "/home",
+                  redirectUrl: "https://snap-shrink-ai.vercel.app/home",
+                  redirectUrlComplete: "https://snap-shrink-ai.vercel.app/home",
                 })
               }
               className="group/btn relative flex h-10 w-full items-center justify-start space-x-2 rounded-md  px-4 font-medium shadow-input bg-zinc-900 shadow-[0px_0px_1px_1px_var(--neutral-800)]"
@@ -196,8 +196,8 @@ export default function Login() {
               onClick={() =>
                 signIn.authenticateWithRedirect({
                   strategy: "oauth_github",
-                  redirectUrl: "/sso-callback",
-                  redirectUrlComplete: "/home",
+                  redirectUrl: "https://snap-shrink-ai.vercel.app/home",
+                  redirectUrlComplete: "https://snap-shrink-ai.vercel.app/home",
                 })
               }
                            className="group/btn relative flex h-10 w-full items-center justify-start space-x-2 rounded-md  px-4 font-medium shadow-input bg-zinc-900 shadow-[0px_0px_1px_1px_var(--neutral-800)]"
