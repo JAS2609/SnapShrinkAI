@@ -22,17 +22,19 @@ const eslintConfig = [
   },
 
   {
-    rules: {
-      "@typescript-eslint/ban-ts-comment": [
-        "error",
-        {
-          ts_nocheck: false,       // ✅ allow @ts-nocheck
-          ts_ignore: true,         // ❌ still ban @ts-ignore
-          ts_expect_error: false,  // ✅ allow @ts-expect-error
-          ts_check: false,
-        },
-      ],
-    },
+    
+  rules: {
+    "@typescript-eslint/ban-ts-comment": [
+      "error",
+      {
+        "ts-nocheck": false,       // allow @ts-nocheck
+        "ts-ignore": true,         // still ban @ts-ignore
+        "ts-expect-error": false,  // allow @ts-expect-error
+        "ts-check": false
+      }
+    ]
+  }
+    
   },
 ];
 
