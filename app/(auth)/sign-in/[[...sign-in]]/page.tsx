@@ -178,7 +178,7 @@ export default function Login() {
               onClick={() =>
                 signIn.authenticateWithRedirect({
                   strategy: "oauth_google",
-                  redirectUrl: "https://snap-shrink-ai.vercel.app/home",
+                  redirectUrl: "https://snap-shrink-ai.vercel.app/sso-callback",
                   redirectUrlComplete: "https://snap-shrink-ai.vercel.app/home",
                 })
               }
@@ -196,7 +196,7 @@ export default function Login() {
               onClick={() =>
                 signIn.authenticateWithRedirect({
                   strategy: "oauth_github",
-                  redirectUrl: "https://snap-shrink-ai.vercel.app/home",
+                  redirectUrl: "https://snap-shrink-ai.vercel.app/sso-callback",
                   redirectUrlComplete: "https://snap-shrink-ai.vercel.app/home",
                 })
               }
