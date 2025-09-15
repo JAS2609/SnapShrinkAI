@@ -58,7 +58,7 @@ export function HeroSection({
         "fade-bottom overflow-hidden pb-0"
       )}
     >
-      <div className="mx-auto flex max-w-container flex-col sm:gap-24">
+      <div className="mx-auto min-h-screen flex max-w-container flex-col sm:gap-24">
         <div className="flex flex-col items-center text-center sm:gap-12">
           {/* Badge */}
           {badge && (
